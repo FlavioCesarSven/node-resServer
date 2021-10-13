@@ -74,15 +74,16 @@ const usuarioPost = async(req, res= response) => {
 
 const usuarioDelete = async(req, res= response) => {
 
-    const id = req.params.id;
+    const {id} = req.params;
     const query = { estado: false };
 
     //Fisicamente eliminado
     // const usuario = await Usuario.findByIdAndDelete( id );
     const usuario = await Usuario.findByIdAndUpdate( id, query );
-    
+
     res.json({
-        usuario
+        usuario,
+        
     })
   }
 
